@@ -1,38 +1,36 @@
-Instructions: https://docs.google.com/document/d/1SFsELva0n1u7v4M4CsRrHYBxsgNAHZbi-M4TcC9Eo5o/edit?usp=sharing
-
 Keywords  
 TCP/IP, sockets, packet capture, network security, sniffing, spoofing, social engineering  
 
 Introduction  
 In this programming assignment, you will attack a server using spoofing and sniffing to get valuable information back from the server. You need PCAP for this packet manipulation. Here is the PCP documentation.
 Download and run the lab environment  
-Clone the assignment, cd into the assignment folder
-Go to the environment directory 
-Switch to the seed user by typing sudo su seed
-Run dcbuild
-Run dcup to start the dockers
-Get another shell and again switch to seed user
-Run dockps to list the dockers running 
-Run docksh <first two digits of id> to ssh into the corresponding docker
-Inside the docker environment, cd to volumes, and you should see your PA code in there (you can still modify things as a normal user, no need to login every time)
+Clone the assignment, cd into the assignment folder  
+Go to the environment directory  
+Switch to the seed user by typing sudo su seed  
+Run dcbuild  
+Run dcup to start the dockers  
+Get another shell and again switch to seed user  
+Run dockps to list the dockers running   
+Run docksh <first two digits of id> to ssh into the corresponding docker  
+Inside the docker environment, cd to volumes, and you should see your PA code in there (you can still modify things as a normal user, no need to login every time)  
 Now use the victim container to host the server container attacker for the spoofer and sniffer. You need to open 2-3 terminals for this assignment, one docksh into the attacker and one or two docksh into the victim (read the implementation note for more info). Since we have the shared volumes folder, compiling code in one container directly affects the other.
-Docker commands cheat sheet
-These aliases are already defined for you in the .bash_aliases file of the seed user
-Command
-Alias
-docker-compose build
-dcbuild
-docker-compose up
-dcup 
-docker-compose down
-dcdown
-docker ps --format "{{.ID}}  {{.Names}}"
-dockps 
-docker exec -it <id> /bin/bash
-docksh  <id>
+Docker commands cheat sheet    
+These aliases are already defined for you in the .bash_aliases file of the seed user  
+Command  
+Alias  
+docker-compose build  
+dcbuild  
+docker-compose up  
+dcup   
+docker-compose down  
+dcdown  
+docker ps --format "{{.ID}}  {{.Names}}"  
+dockps    
+docker exec -it <id> /bin/bash  
+docksh  <id>  
+  
 
-
-Requirements
+Requirements  
 In this assignment, you will write a sniffer and a spoofer program. The goal is to spoof packets with a fake identity accepted by the server. The server then parses the data from your packet to its reply message destination address along with the requested data.
 Packet sniffing is the practice of intercepting and inspecting packets while they are flowing through the network. This can be for monitoring or malicious purposes.
 Packet / IP spoofing can create Internet Protocol (IP) packets with a source IP address to conceal the sender's identity or impersonate another user.  
