@@ -1,10 +1,12 @@
 Keywords  
 Multithreading, producer-consumer relationship, race conditions, overflow, underflow, mutual exclusion.  
+  
 Introduction  
 In this programming assignment, you will integrate multithreading to increase efficiency and improve the runtime of PA1.
 While preparing your timing report for PA1, you may have noticed that transferring over multiple data points (1K) took a long time to complete. This was also observable when using filemsg requests to transfer over raw files of extremely large sizes. 
 This undesirable runtime is largely attributed to being limited to a single channel to transfer over each data point or chunk in a sequential manner.
 In PA3, we will take advantage of multithreading to implement our transfer functionality through multiple channels in a concurrent manner; this will improve on bottlenecks and make operations significantly faster.
+  
 Why Threading?
 Notice that the server calls usleep(rand % 5000) upon receiving a datamsg request. This leads to a random processing time for each datamsg request. Since the requests are sequential, one delayed request-response affects the processing time for all subsequent requests. If we wanted to transfer over each data point of the 15 files in the BIMDC directory through datamsg requests, we would have to make multiple requests for each file sequentially; naturally, this would result in a long time to execute. 
 One way to collect data faster from these files is to use 15 threads from the client side, one for each patient. Each thread would create its own request channel with the server and then independently collect the responses for each file as well. Since the server already processes each channel in a separate thread, you can get at most 15-fold speed over the sequential version. This technique is shown in Figure 1. Note that file requests can be sped up similarly.
