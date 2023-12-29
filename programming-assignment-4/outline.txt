@@ -1,0 +1,5 @@
+- doc/ppt walkthrough
+- starter code walkthrough (need to populate BB and client)
+- client/server modifications
+- TCPRequestChannel implementatios
+- testing (and makefile rule)

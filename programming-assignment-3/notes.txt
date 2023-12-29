@@ -1,0 +1,27 @@
+Introduction:
+-Kind of PA1 with multithreading
+
+Client
+-need to join() threads after making them
+
+Datamsg:
+-create p-threads to produce Datamsgs
+-create w FIFOs for workers to use
+- create w-threads to consume and process Datamsg
+    -> worker threads produce result of process Datamsgs
+-create h-threads to consume results and populate HG
+
+Histogram uses mutex to avoid race conditions
+
+File Transfers:
+-collect file size
+-create a thread to produce filemsgs
+-create w-threads to consume and process file msgs
+    -> use fseek to write to file (open mode important)
+
+Bounded Buffer:
+-STL queue with objects vector<char>
+-use a mutex and cond var
+    -> mutex is wrapped in a unique_lock
+-push waits on size < cap; notify pop that data is available (cond var)
+-pop waits on size > 0; notify push that slot is available (cond var)

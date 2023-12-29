@@ -1,0 +1,9 @@
+for client: 
+    - a option: IP adddress (default 127.0.0.1)
+    - r option: port # (default 8080 may need to modify)
+
+for server:
+    - r option: port # (default 8080 may need to modify)
+
+for TCPRequestChannel:
+    - in client/server, replace fifo request channel instances with TCPRequestChannel
