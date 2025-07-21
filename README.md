@@ -1,4 +1,4 @@
-Each programming assignments has their own README, apologies for the poor formatting, they are the copy and pasted assignment documents from the class.
+**Each programming assignments has their own README, apologies for the poor formatting, they are the copy and pasted assignment documents from the class.**
 
 Here are the keywords for each programming assignment to help with navigation:  
 -Programming Assignment 1: Processes, files, named pipes, FIFO  
